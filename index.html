@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSX</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div class="root">
+        
+    </div>
+
+
+
+
+    <script type="text/babel">
+        // trong JSX muốn render nhiều hơn 2 element cùng 1 lúc thì cần phái có 1 wrapper bao bọc lại
+        // hơacj có thể dùng <React.Frament></React.Frament>
+        const rootEl = document.querySelector(".root");
+
+        const courses = [
+            {
+                name: "HTML, CSS",
+            },
+            {
+                name: "Javascript",
+            },
+            {
+                name: "Backend",
+            }
+        ]
+        const a = 'Trần Minh Nghĩa';
+
+
+        const ulEl = 
+            <ul>
+                <li className = "heading">Võ Hồng Nguyên</li>
+                <li>{a}</li>
+            </ul>
+        const ulEl2 = 
+            <ul>
+                
+                {courses.map((course, index) => 
+                {
+                    return <li key={index}>{course.name}</li>
+                    // ta dùng thêm key="index" để phân biệt giữa các element con
+                })}
+                
+            </ul>
+        // ReactDOM.render(ulEl, rootEl);
+        ReactDOM.render(ulEl2, rootEl);
+
+    </script>
+</body>
+</html>
